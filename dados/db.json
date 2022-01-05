@@ -15,6 +15,11 @@
       "password": "1111111111",
       "passwordConfirm": "1111111111",
       "id": 2
+    },
+    {
+      "email": "jcmagalhaes301@gmail.com",
+      "password": "123",
+      "id": 3
     }
   ]
 }

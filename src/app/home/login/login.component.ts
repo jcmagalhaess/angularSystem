@@ -1,5 +1,7 @@
+import { AutenticacaoService } from './../../autenticacao/autenticacao.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   formLogin!: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private _authService: AutenticacaoService, private _router: Router) {}
 
   ngOnInit(): void {
     this.formLogin = this._formBuilder.group({
@@ -19,9 +21,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(`
-      Email: ${this.formLogin.get('email')?.value}\n
-      Senha: ${this.formLogin.get('senha')?.value}
-    `);
+    this._authService.autenticar(this.formLogin.get('email')?.value, this.formLogin.get('senha')?.value).subscribe(()=>{
+      this._router.navigate(['dashboard'])
+    }, (error) => {
+      alert('Usuário ou senha inválido!')
+      console.log(error)
+    })
   }
 }

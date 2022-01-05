@@ -1,1 +1,29 @@
-<p>login works!</p>
+<form [formGroup]="formLogin" (submit)="login()">
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Insira seu email</mat-label>
+      <input matInput type="email" placeholder="pat@example.com" formControlName="email" required>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Insira sua senha</mat-label>
+      <input matInput type="password" placeholder="**********" formControlName="senha" required>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p>
+        <button [disabled]="formLogin.invalid" mat-flat-button color="primary">Acessar</button>
+      </p>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <p>Não tem conta?
+      <button mat-button color="link">Clique aqui</button>
+    </p>
+  </div>
+</div>

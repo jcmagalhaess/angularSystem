@@ -6,3 +6,21 @@ main {
   justify-content: center;
   background-color: #f2f6ff;
 }
+
+.c-panel {
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 10px;
+  width: 50%;
+  margin: auto;
+  &__heading {
+    text-align: center;
+    h2 {
+      color: #31507d;
+    }
+    h4 {
+      @extend h2;
+      font-weight: 200;
+    }
+  }
+}

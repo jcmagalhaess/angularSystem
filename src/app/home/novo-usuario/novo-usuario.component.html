@@ -1,0 +1,49 @@
+<form [formGroup]="formCadastro" (submit)="cadastrar()">
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome Completo</mat-label>
+      <input matInput placeholder="Ex.: Fulano de Tal" formControlName="fullname" required>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" placeholder="Ex.: email@example.com" formControlName="email" required>
+      <mat-error *ngIf="formCadastro.get('email')?.hasError('email') && formCadastro.get('email')?.touched">Insira um email valido</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Usuário</mat-label>
+      <input matInput placeholder="Ex.: fulaninho" formControlName="username" required>
+      <mat-error *ngIf="formCadastro.get('username')?.errors?.['minusculo'] && formCadastro.get('username')?.touched">Insira apenas caracteres minusculos</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Insira sua senha</mat-label>
+        <input matInput #password type="password" maxlength="10" placeholder="**********" formControlName="password"
+          required>
+        <mat-hint align="end">{{password.value?.length || 0}}/10</mat-hint>
+        <mat-error *ngIf="formCadastro.errors?.['senhaIgualUsuario']">Usuário e senha não pode ser o mesmo</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Confirmar senha</mat-label>
+        <input matInput #passwordConfirm type="password" maxlength="10" placeholder="**********" formControlName="passwordConfirm"
+          required>
+        <mat-hint align="end">{{passwordConfirm.value?.length || 0}}/10</mat-hint>
+        <mat-error *ngIf="formCadastro.errors?.['senhasDiferentes']">Usuário e senha não pode ser o mesmo</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p>
+        <button [disabled]="formCadastro.invalid" mat-flat-button color="primary">Acessar</button>
+      </p>
+    </div>
+  </div>
+</form>

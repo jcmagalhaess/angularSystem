@@ -15,11 +15,12 @@ main {
   margin: auto;
   &__heading {
     text-align: center;
-    h2 {
-      color: #31507d;
+    color: #31507d;
+    .icon {
+      width: 100%;
+      font-size: 5rem;
     }
     h4 {
-      @extend h2;
       font-weight: 200;
     }
   }

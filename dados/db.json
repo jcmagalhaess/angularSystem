@@ -1,10 +1,20 @@
 {
   "users": [
     {
-      "username": "jcmagalhaes",
       "fullname": "Júlio Magalhães",
+      "username": "jcmagalhaess",
       "email": "jcmagalhaes301@gmail.com",
-      "password": 123456
+      "password": "J2a7jmmb@#",
+      "passwordConfirm": "J2a7jmmb@#",
+      "id": 1
+    },
+    {
+      "fullname": "Júlio Magalhães",
+      "username": "joao",
+      "email": "jcmagalhaes301@gmail.com",
+      "password": "1111111111",
+      "passwordConfirm": "1111111111",
+      "id": 2
     }
   ]
 }

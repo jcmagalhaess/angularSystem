@@ -9,12 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NovoUsuarioComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ]
 })
 export class HomeModule { }
